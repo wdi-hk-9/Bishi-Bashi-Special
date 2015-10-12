@@ -1,5 +1,5 @@
 # FIRST PROJECT
 
-## Black Jack
+## Bishi-Bashi-Special
 
-###DENIS SAID MAKE SOME CHANGES
+###Arcade game recreated
