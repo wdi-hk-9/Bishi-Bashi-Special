@@ -1,1 +1,5 @@
-# Bishi-Bashi-Special
+# FIRST PROJECT
+
+## Black Jack
+
+###DENIS SAID MAKE SOME CHANGES
