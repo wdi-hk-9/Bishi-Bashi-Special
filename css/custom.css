@@ -2,15 +2,60 @@
  * ColorsPicked with love from:
  * http://www.colourlovers.com/web/trends/websites/7858/Pandora
  */
-/*
-#left-column{
-  display: inline-block;
-  float: left;
-;
+
+/*blink*/
+
+#column-section{
+  height: 400px;
+  overflow: hidden;
+  padding: 0px;
 }
 
-#right-column{
-  display: inline-block;
-  float: right;
-  max-width: 300px;
+#column-section>div{
+  position: relative;
+}
+
+#left-column, #right-column{
+  position: relative;
+  bottom: -50px;
+}
+
+#left-column div, #right-column div{
+  height: 50px;
+  border: solid white;
+  bottom: 750px;
+  color: black;
+}
+
+#Pikachu1, #Pikachu2{
+  max-height: 150px;
+  min-height: 100px;
+}
+
+#Pikachu1 img,#Pikachu2 img{
+  height: 100%;
+  width: auto;
+}
+
+/*#left-column div:last-child, #right-column div:last-child{
+  bottom-margin: 0;
+  animation-name: stretch;
+  animation-duration: 1.0s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;*/
+/*}
+
+@keyframes stretch {
+  0% {
+    transform: scale(.7);
+    border-radius: 100%;
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }*/
