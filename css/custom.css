@@ -16,20 +16,26 @@
 }
 
 #left-column, #right-column{
+  position: relative;
+  bottom: -50px;
 }
 
 #left-column div, #right-column div{
   height: 50px;
-  background: blue;
-  color: blue; /*dummy color*/
   border: solid white;
+  bottom: 750px;
+  color: black;
 }
 
+#Pikachu1, #Pikachu2{
+  max-height: 150px;
+  min-height: 100px;
+}
 
-/*#Pikachu1, #Pikachu2{
-  height: 250px;
-  border: solid white;
-}*/
+#Pikachu1 img,#Pikachu2 img{
+  height: 100%;
+  width: auto;
+}
 
 /*#left-column div:last-child, #right-column div:last-child{
   bottom-margin: 0;
