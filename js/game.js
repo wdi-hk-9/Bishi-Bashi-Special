@@ -1,9 +1,7 @@
 // var Color = ['LEFT-RED','DOWN-GREEN','RIGHT-BLUE'];
 
 //Declare global variable:
-var colPosition = 0;
-
-var playerColor = {
+var playerKeysColor = {
   37:'red',
   40:'green',
   39:'blue',
@@ -11,31 +9,28 @@ var playerColor = {
   83:'green',
   68:'blue'};
 
-//Define new Array for columns
-var Seq = function (column){
+var Game = function (){
+  this.playerA = new Player("#left-column","#scoreA");
+  this.columnA    = new Column("#left-column");
+
+  this.playerB = new Player("#right-column", "#scoreB");
+  this.columnB    = new Column("#right-column");
+
+  this.winner  = null;
   this.time_limit = 0;
-  this.column = column;
-  this.sequence = [];
-  for (var i=0; i<20; i++){
-    this.sequence.push( this.randomColor() );
-  };
 };
 
-Seq.prototype.randomColor = function(){
-  var boxColor = ['red','green','blue','red','green','blue'];
-  return boxColor[ Math.floor(Math.random()*6) ];
-}
-
-Seq.prototype.checkAnswer = function(color){
-  if (color == this.sequence[0]){
-    return this.sequence.shift();
+//check Gameover
+Game.prototype.gameOver = function (){
+  if (this.playerA.playerScore == 20 && this.playerB.playerScore <20){
+    this.winner = "Player A";
+    alert ("Game over! Winner is"+ game.winner);
+    return true;
+  } else if (this.playerB.playerScore == 20 && this.playerA.playerScore<20){
+    this.winner = "Player B";
+    alert ("Game over! Winner is"+ game.winner);
+    return true
   } else {
     return false;
   }
-}
-
-var Player = function (playerCol, colPosition){
-  this.playerCol = playerCol;
-  this.colPosition = colPosition;
-  this.playerColor = [];
-}
+};
