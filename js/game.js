@@ -24,11 +24,11 @@ var Game = function (){
 Game.prototype.gameOver = function (){
   if (this.playerA.playerScore == 20 && this.playerB.playerScore <20){
     this.winner = "Player A";
-    alert ("Game over! Winner is"+ game.winner);
+    alert ("Game over! Winner is "+ game.winner+" !");
     return true;
   } else if (this.playerB.playerScore == 20 && this.playerA.playerScore<20){
     this.winner = "Player B";
-    alert ("Game over! Winner is"+ game.winner);
+    alert ("Game over! Winner is "+ game.winner+" !");
     return true
   } else {
     return false;

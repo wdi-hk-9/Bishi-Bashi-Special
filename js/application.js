@@ -1,4 +1,18 @@
 $(document).ready(function(){
+//Buzz
+  var bgmusic = new buzz.sound("./sounds/juicy_breakout-theme.mp3");
+  var dropboxmusic = new buzz.sound("./sounds/ball-wall.mp3");
+
+  bgmusic.loop().fadeIn(2000).play();
+
+  if (!buzz.isMP3Supported()) {
+    alert ("Your browser doesn't support MP3 Format.")
+  };
+
+// button to mute and unmute (buzz)
+  $("#mute").on("click", function (){
+    bgmusic.toggleMute();
+  });
 
   //Initialize box colors
   var initializeBlocks = function(column){
@@ -19,7 +33,7 @@ $(document).ready(function(){
       } else {
         if (keyColor && column.dropColumn(keyColor)) {
           $(column.columnID).find("div:last-child").remove();//remove column last div
-          player.colPosition = player.colPosition+50;
+          player.colPosition = player.colPosition+70;
           $(column.columnID).css("transform",'translateY('+player.colPosition+'px)'); //shift column down
           player.playerColor.push(keyColor); //update Array
           player.score(); //player score++
@@ -32,7 +46,7 @@ $(document).ready(function(){
         }
       }
     } else {
-      alert ("Game over! Winner is"+ game.winner);
+      alert ("Game over! Would you like to start a new game?"); //confirm?
     }
   });
 
@@ -50,25 +64,23 @@ $(document).ready(function(){
     else              { return game.playerB; }
   };
 
-  //Resizing Pikachus
-  $(window).on("resize", function () {
-    var pikaHeight1 = $('#Pikachu1').width() * 1.44;
-    $('#Pikachu1').height(pikaHeight1+"");
-  });
+  // //Resizing Pikachus
+  // $(window).on("resize", function () {
+  //   var pikaHeight1 = $('#Pikachu1').width() * 1.44;
+  //   $('#Pikachu1').height(pikaHeight1+"");
+  // });
 
-  $(window).on("resize", function () {
-    var pikaHeight2 = $('#Pikachu2').width() * 1.44;
-    $('#Pikachu2').height(pikaHeight2+"");
-  });
+  // $(window).on("resize", function () {
+  //   var pikaHeight2 = $('#Pikachu2').width() * 1.44;
+  //   $('#Pikachu2').height(pikaHeight2+"");
+  // });
+
 
   ////////////////////////////////////////////////////////////////////
   // GAME LOGIC
   ////////////////////////////////////////////////////////////////////
 
   game = new Game();
-
-
-
   initializeBlocks(game.columnA);
   initializeBlocks(game.columnB);
 

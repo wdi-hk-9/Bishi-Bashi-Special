@@ -15,41 +15,40 @@
 </head>
 
 <body>
-  <section class="container well">
+  <section class="container well" id="game-title">
     <h1 class="text-center">Bishi Bashi Special-Two Players</h1>
   </section>
 
-  <section class="container well text-center" id="column-section">
+  <section class="container well" id="column-section">
     <div>
       <div class="row" >
 
         <!-- LEFT COLUMN -->
         <div class="col-xs-6" id="left-column">
-          <div class="col-xs-6 col-xs-offset-2" id="Pikachu1">
+          <div class="col-xs-6 col-xs-offset-3" id="Pikachu1">
             <img class="img-responsive center-block" src="images/PikachuProud.png"  alt="Image">
           </div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
-          <div class="col-xs-6 col-xs-offset-2">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
+          <div class="col-xs-6 col-xs-offset-3">&nbsp</div>
         </div> <!-- left col close div -->
-
         <!-- RIGHT COLUMN -->
         <div class="col-xs-6" id="right-column">
           <div class="col-xs-6 col-xs-offset-2" id="Pikachu2">
@@ -80,33 +79,37 @@
     </div>
   </section> <!-- close columns section -->
 
-  <section class="container well text-center">
-    <div>
+  <section class="container well text-center bg-info">
+    <div class="bg-info">
       <div class="row">
         <div class="col-xs-6">
-          <p>Player A    <span>Timer</span></p>
+          <h3 class="text-info pull-left">Player A    <span>Timer</span></h3>
           <!-- <input type="number" placeholder="Your name"> -->
         </div> <!-- left col close div -->
 
         <div class="col-xs-6">
-          <p>Player B    <span>Timer</span></p>
+          <h3 class="text-info pull-left">Player B    <span>Timer</span></h3>
         </div> <!-- right col close div -->
       </div> <!-- div row close div -->
 
       <div class="row">
         <div class="col-xs-6">
-          <h3 id="scoreA">Current score: 0</h3>
+          <h4 id="scoreA" class="text-danger">Current score: 0</h4>
         </div>
         <div class="col-xs-6">
-          <h3 id="scoreB">Current score: 0</h3>
+          <h4 id="scoreB" class="text-danger">Current score: 0</h4>
         </div>
       </div>
 
     </div>
   </section>
+    <div  class="text-center">
+      <button type="button" class="btn btn-warning" id="mute">Mute/Unmute</button>
+    </div>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/buzz/1.1.10/buzz.min.js"></script>
   <script src="js/column.js"></script>
   <script src="js/player.js"></script>
   <script src="js/game.js"></script>

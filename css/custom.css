@@ -1,12 +1,22 @@
-/*
- * ColorsPicked with love from:
- * http://www.colourlovers.com/web/trends/websites/7858/Pandora
- */
+body{
+  min-width: 900px;
+}
 
-/*blink*/
+#game-title{
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  border: transparent;
+}
+
+h1{
+  padding: 5px;
+  margin: 0px 5px;
+}
 
 #column-section{
-  height: 400px;
+  height: 490px;
   overflow: hidden;
   padding: 0px;
 }
@@ -21,20 +31,33 @@
 }
 
 #left-column div, #right-column div{
-  height: 50px;
-  border: solid white;
-  bottom: 750px;
-  color: black;
+  height: 70px;
+  border: 2px solid white;
+  bottom: 1313px;
+  border-radius: 20px !important;
 }
 
-#Pikachu1, #Pikachu2{
-  max-height: 150px;
-  min-height: 100px;
+#left-column div:first-child, #right-column div:first-child{
+  height: 350px;
+  border: transparent;
+  width: auto !important;
 }
 
 #Pikachu1 img,#Pikachu2 img{
   height: 100%;
   width: auto;
+}
+
+section.container.well.text-center{
+  padding: 0px;
+}
+
+h3{
+  margin: 10px 10px 0px 10px;
+}
+
+#scoreA, #scoreB{
+  margin: 0px 10px 10px 10px;
 }
 
 /*#left-column div:last-child, #right-column div:last-child{
