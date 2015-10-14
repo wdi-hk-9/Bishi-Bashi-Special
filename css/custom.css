@@ -62,25 +62,6 @@ h3{
   margin: 0px 10px 10px 10px;
 }
 
-/*#left-column div:last-child, #right-column div:last-child{
-  bottom-margin: 0;
-  animation-name: stretch;
-  animation-duration: 1.0s;
-  animation-timing-function: ease-out;
-  animation-delay: 0;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  animation-fill-mode: none;
-  animation-play-state: running;*/
-/*}
-
-@keyframes stretch {
-  0% {
-    transform: scale(.7);
-    border-radius: 100%;
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}*/
+#mute, #reset {
+  margin-right: 100px;
+}

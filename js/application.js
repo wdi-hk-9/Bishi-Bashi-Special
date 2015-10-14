@@ -47,13 +47,14 @@ $(document).ready(function(){
           $(column.columnID).css("bottom", (1263 - player.colPosition)+'px'); //shift column down
           player.playerColor.push(keyColor); //update Array
           player.score();                    //player score++
+          $(player.scoreID).html("Current score: "+player.playerScore);
+          game.gameOver();                  //check if game over
           if (player.playerScore%20 == 0){   //PLAY SOUND argument
             pika.play();
+            $(column.columnID).find("div:last-child").addClass("animated bounce");
           } else if (player.playerScore%5 ==0){
             combo.play();
           }                                 //PLAY SOUND arguement
-          game.gameOver();                  //check if game over
-          $(player.scoreID).html("Current score: "+player.playerScore);
         } else {
           $(column.columnID).find("div:last-child").addClass("animated flash");
           $(column.columnID).find("div:last-child").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
@@ -87,13 +88,13 @@ $(document).ready(function(){
   // GAME LOGIC
   ////////////////////////////////////////////////////////////////////
 
-  var init = function () {
+  var init = function() {
     game = new Game();
     initializeBlocks(game.columnA, 5);
     initializeBlocks(game.columnB, 2);
   };
 
-  var reset = function () {
+  var reset = function() {
     console.log("test");
     delete game;
     game = new Game();
@@ -104,7 +105,7 @@ $(document).ready(function(){
     $("#scoreA, #scoreB").html("Current score: 0");
   };
 
-// Buttons to mute and unmute (buzz)
+  // Buttons
   $("#mute").on("click", function (){
     bgmusic.toggleMute();
     kickBox.toggleMute();
@@ -114,7 +115,15 @@ $(document).ready(function(){
 
   $("#reset").on("click", reset);
 
+  var instruct = function (){
+    $("#myModal").modal("toggle");
+  };
+
+  $("#instruct").on("click", instruct);
+
   init();
+
+});
 
     // //Resizing Pikachus
   // $(window).on("resize", function () {
@@ -126,5 +135,3 @@ $(document).ready(function(){
   //   var pikaHeight2 = $('#Pikachu2').width() * 1.44;
   //   $('#Pikachu2').height(pikaHeight2+"");
   // });
-
-});
