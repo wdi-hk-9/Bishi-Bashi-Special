@@ -19,6 +19,9 @@ h1{
   height: 490px;
   overflow: hidden;
   padding: 0px;
+  background-image: url(../images/bg-img.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #column-section>div{
@@ -27,20 +30,19 @@ h1{
 
 #left-column, #right-column{
   position: relative;
-  bottom: -50px;
+  bottom: 1263px;
 }
 
 #left-column div, #right-column div{
   height: 70px;
   border: 2px solid white;
-  bottom: 1313px;
   border-radius: 20px !important;
 }
 
 #left-column div:first-child, #right-column div:first-child{
   height: 350px;
   border: transparent;
-  width: auto !important;
+  width: 300px !important;
 }
 
 #Pikachu1 img,#Pikachu2 img{
