@@ -16,7 +16,7 @@ $(document).ready(function(){
   combo.setVolume(100);
   pika.setVolume(100);
 
-  // bgmusic.loop().play();
+  bgmusic.loop().play();
 
   //Initialize box colors
   var initializeBlocks = function(column, offset){
@@ -34,7 +34,6 @@ $(document).ready(function(){
     var keyColor = getColor(e.keyCode);
     var column = whichC(e.keyCode);
     var player = whichP(e.keyCode);
-
     if (!game.gameOver()){
       if (player.penalty === true){
         //shake box
@@ -47,7 +46,6 @@ $(document).ready(function(){
           $(column.columnID).css("bottom", (1263 - player.colPosition)+'px'); //shift column down
           player.playerColor.push(keyColor); //update Array
           player.score();                    //player score++
-          // timerStart();                      //KICK OFF timer for one time
           $(player.scoreID).html("Current score:   "+player.playerScore);
           game.gameOver();                  //check if game over
           if (player.playerScore%20 == 0){   //PLAY SOUND argument
@@ -82,39 +80,6 @@ $(document).ready(function(){
     if (keycode <100) { return game.playerA; }
     else              { return game.playerB; }
   };
-
-// STOPWATCH
-  // var seconds, ms =0;
-  // var t;
-
-  // function timerAdd(){
-  //   ms++;
-  //   if (ms >=1000){
-  //     ms = 0;
-  //     seconds++;
-  //   }
-  //   //setTImerA
-  //   $("#timerA>time").html(
-  //     (seconds > 9? (seconds : "0" + seconds)) + ":" +
-  //     (ms > 999? (ms :
-  //       (ms > 99? ("0" + ms :
-  //         (ms > 9? ("0" +ms :
-  //           "00" + ms );
-  //         ));
-  //       ));
-  //   ));
-  // };
-
-  // function timer(){
-  //   t = setTimeout(timerAdd, 1);
-  // }
-
-  // function timerStart(){
-  //   if (game.playerA.playerScore + game.playerB.playerScore == 1){
-  //     timer();
-  //     console.log("timer working")
-  //   }
-  // }
 
   ////////////////////////////////////////////////////////////////////
   // GAME LOGIC
@@ -154,6 +119,7 @@ $(document).ready(function(){
   $("#instruct").on("click", instruct);
 
   $("#myModal").modal("show")
+
   init();
 
 });
