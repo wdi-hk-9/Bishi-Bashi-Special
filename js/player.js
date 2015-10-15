@@ -6,6 +6,7 @@ var Player = function (playerColumn, scoreID){
   this.penalty = false;
   this.playerColor = [];
   this.playerScore = 0;
+  this.ended = false;
 };
 
 Player.prototype.score = function(){
