@@ -25,7 +25,7 @@ $(document).ready(function(){
       $(column.columnID).append(html);
     }
     column.sequence.forEach(function(color, idx){
-      $(column.columnID + " div").eq(-(idx+1)).css("background-color",color);
+      $(column.columnID + " div").eq(-(idx+1)).addClass(color);
     });
   };
 
@@ -47,7 +47,8 @@ $(document).ready(function(){
           $(column.columnID).css("bottom", (1263 - player.colPosition)+'px'); //shift column down
           player.playerColor.push(keyColor); //update Array
           player.score();                    //player score++
-          $(player.scoreID).html("Current score: "+player.playerScore);
+          // timerStart();                      //KICK OFF timer for one time
+          $(player.scoreID).html("Current score:   "+player.playerScore);
           game.gameOver();                  //check if game over
           if (player.playerScore%20 == 0){   //PLAY SOUND argument
             pika.play();
@@ -82,7 +83,38 @@ $(document).ready(function(){
     else              { return game.playerB; }
   };
 
-// STOPWATCH:
+// STOPWATCH
+  // var seconds, ms =0;
+  // var t;
+
+  // function timerAdd(){
+  //   ms++;
+  //   if (ms >=1000){
+  //     ms = 0;
+  //     seconds++;
+  //   }
+  //   //setTImerA
+  //   $("#timerA>time").html(
+  //     (seconds > 9? (seconds : "0" + seconds)) + ":" +
+  //     (ms > 999? (ms :
+  //       (ms > 99? ("0" + ms :
+  //         (ms > 9? ("0" +ms :
+  //           "00" + ms );
+  //         ));
+  //       ));
+  //   ));
+  // };
+
+  // function timer(){
+  //   t = setTimeout(timerAdd, 1);
+  // }
+
+  // function timerStart(){
+  //   if (game.playerA.playerScore + game.playerB.playerScore == 1){
+  //     timer();
+  //     console.log("timer working")
+  //   }
+  // }
 
   ////////////////////////////////////////////////////////////////////
   // GAME LOGIC
@@ -102,7 +134,7 @@ $(document).ready(function(){
     initializeBlocks(game.columnA, 5);
     initializeBlocks(game.columnB, 2);
     $("#left-column, #right-column").css("bottom",'1263px')
-    $("#scoreA, #scoreB").html("Current score: 0");
+    $("#scoreA, #scoreB").html("Current score:   0");
   };
 
   // Buttons
@@ -116,22 +148,12 @@ $(document).ready(function(){
   $("#reset").on("click", reset);
 
   var instruct = function (){
-    $("#myModal").modal("toggle");
+    $("#myModal").show();
   };
 
   $("#instruct").on("click", instruct);
 
+  $("#myModal").modal("show")
   init();
 
 });
-
-    // //Resizing Pikachus
-  // $(window).on("resize", function () {
-  //   var pikaHeight1 = $('#Pikachu1').width() * 1.44;
-  //   $('#Pikachu1').height(pikaHeight1+"");
-  // });
-
-  // $(window).on("resize", function () {
-  //   var pikaHeight2 = $('#Pikachu2').width() * 1.44;
-  //   $('#Pikachu2').height(pikaHeight2+"");
-  // });

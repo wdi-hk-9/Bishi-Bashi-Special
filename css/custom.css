@@ -1,5 +1,6 @@
 body{
   min-width: 900px;
+  font-family: 'Slackey', cursive;
 }
 
 #game-title{
@@ -22,10 +23,23 @@ h1{
   background-image: url(../images/bg-img.png);
   background-size: cover;
   background-repeat: no-repeat;
+  margin-top: 20px;
 }
 
 #column-section>div{
   position: relative;
+}
+
+.red{
+  background-image: linear-gradient(to bottom, rgba(229, 111, 102, 0.79), #C60F0F)
+}
+
+.green{
+  background-image: linear-gradient(to bottom, #4CAF50, #23321C)
+}
+
+.blue {
+  background-image: linear-gradient(to bottom, #3498DB, rgba(0,0,255,0.8))
 }
 
 #left-column, #right-column{
@@ -64,4 +78,23 @@ h3{
 
 #mute, #reset {
   margin-right: 100px;
+}
+
+.modal, .modal-dialog, .modal-content {
+    /* 80% of window height */
+    height: 90%;
+}
+
+div.modal-body {
+  height: 70%;
+}
+
+.img-responsive-height {
+  display: block;
+  width: auto;
+  max-height: 100%
+}
+
+div.modal-footer div{
+  height: 10%;
 }
