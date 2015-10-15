@@ -92,7 +92,6 @@ $(document).ready(function(){
   };
 
   var reset = function() {
-    console.log("test");
     delete game;
     game = new Game();
     $(".blocks").remove();
