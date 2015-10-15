@@ -2,12 +2,13 @@
 
 //Declare global variable:
 var playerKeysColor = {
-  37:'red',
-  40:'green',
-  39:'blue',
+  188:'red',
+  190:'green',
+  191:'blue',
   65:'red',
   83:'green',
-  68:'blue'};
+  68:'blue'
+};
 
 var Game = function (){
   this.playerA = new Player("#left-column","#scoreA");
@@ -24,11 +25,9 @@ var Game = function (){
 Game.prototype.gameOver = function (){
   if (this.playerA.playerScore == 20 && this.playerB.playerScore <20){
     this.winner = "Player A";
-    alert ("Game over! Winner is"+ game.winner);
     return true;
   } else if (this.playerB.playerScore == 20 && this.playerA.playerScore<20){
     this.winner = "Player B";
-    alert ("Game over! Winner is"+ game.winner);
     return true
   } else {
     return false;
