@@ -18,17 +18,15 @@ var Game = function (){
   this.columnB    = new Column("#right-column");
 
   this.winner  = null;
-  this.time_limit = 0;
+  this.started = false;
 };
 
 //check Gameover
 Game.prototype.gameOver = function (){
   if (this.playerA.playerScore == 20 && this.playerB.playerScore <20){
     this.winner = "Player A";
-    return true;
   } else if (this.playerB.playerScore == 20 && this.playerA.playerScore<20){
     this.winner = "Player B";
-    return true
   } else {
     return false;
   }

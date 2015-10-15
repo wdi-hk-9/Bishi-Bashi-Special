@@ -34,34 +34,38 @@ $(document).ready(function(){
     var keyColor = getColor(e.keyCode);
     var column = whichC(e.keyCode);
     var player = whichP(e.keyCode);
-    if (!game.gameOver()){
-      if (player.penalty === true){
-        //shake box
-      } else {
-        if (keyColor && column.dropColumn(keyColor)) {
-          kickBox.play();//play sound
-          $(column.columnID).find("div:last-child").remove();//remove column last div
-          player.colPosition = player.colPosition+70;
-          // $(column.columnID).css("transform",'translateY('+player.colPosition+'px)'); //shift column down
-          $(column.columnID).css("bottom", (1263 - player.colPosition)+'px'); //shift column down
-          player.playerColor.push(keyColor); //update Array
-          player.score();                    //player score++
-          $(player.scoreID).html("Current score:   "+player.playerScore);
-          game.gameOver();                  //check if game over
-          if (player.playerScore%20 == 0){   //PLAY SOUND argument
-            pika.play();
-            $(column.columnID).find("div:last-child").addClass("animated bounce");
-          } else if (player.playerScore%5 ==0){
-            combo.play();
-          }                                 //PLAY SOUND arguement
+    if (column && player){
+      gameTimer();
+      if (!game.gameOver()){
+        if (player.penalty === true){
+          //shake box
         } else {
-          $(column.columnID).find("div:last-child").addClass("animated flash");
-          $(column.columnID).find("div:last-child").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
-            $(this).removeClass("animated flash");
-          });
-          shakeSound.play();               //PLAY SOUND
-          player.penalty = true;
-          setTimeout(function(){player.penalty = false;}, 500);
+          if (keyColor && column.dropColumn(keyColor)) {
+            kickBox.play();//play sound
+            $(column.columnID).find("div:last-child").remove();//remove column last div
+            player.colPosition = player.colPosition+70;
+            // $(column.columnID).css("transform",'translateY('+player.colPosition+'px)'); //shift column down
+            $(column.columnID).css("bottom", (1263 - player.colPosition)+'px'); //shift column down
+            player.playerColor.push(keyColor); //update Array
+            player.score();                    //player score++
+            $(player.scoreID).html("Current score:   "+player.playerScore);
+            game.gameOver();                  //check if game over
+            if (player.playerScore%20 == 0){   //PLAY SOUND argument
+              player.ended = true;
+              pika.play();
+              $(column.columnID).find("div:last-child").addClass("animated bounce");
+            } else if (player.playerScore%5 ==0){
+              combo.play();
+            }                                 //PLAY SOUND arguement
+          } else {
+            $(column.columnID).find("div:last-child").addClass("animated flash");
+            $(column.columnID).find("div:last-child").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
+              $(this).removeClass("animated flash");
+            });
+            shakeSound.play();               //PLAY SOUND
+            player.penalty = true;
+            setTimeout(function(){player.penalty = false;}, 500);
+          }
         }
       }
     }
@@ -72,14 +76,51 @@ $(document).ready(function(){
   };
 
   var whichC = function(keycode){
-    if (keycode <100) { return game.columnA; }
-    else             { return game.columnB; }
+    if (keycode == 65 ||  keycode == 68 || keycode == 83)         { return game.columnA; }
+    else if (keycode == 188 ||  keycode == 190 || keycode == 191) { return game.columnB; }
   };
 
   var whichP = function(keycode){
-    if (keycode <100) { return game.playerA; }
-    else              { return game.playerB; }
+    if (keycode == 65 ||  keycode == 68 || keycode == 83)         { return game.playerA; }
+    else if (keycode == 188 ||  keycode == 190 || keycode == 191) { return game.playerB; }
   };
+
+  // STOPWATCH
+  var millisec = 0;
+  var seconds = 0;
+  var totalTime = 0; // in ms
+  var timer;
+
+  function stopTimer(){
+    clearTimeout(timer);
+    timer = 0;
+    millisec = 0;
+    seconds = 0;
+  }
+
+  function display(){
+    totalTime += 100;
+    millisec = (totalTime % 1000) / 100;
+    seconds = Math.floor(totalTime / 1000);
+    if (!game.playerA.ended){
+      $("#timerA>time").html(seconds + "." + millisec + "s");
+    }
+
+    if (!game.playerB.ended){
+      $("#timerB>time").html(seconds + "." + millisec + "s");
+    }
+
+    if (game.playerA.ended && game.playerB.ended) {
+      stopTimer();
+    }
+  }
+
+  function gameTimer(){
+    if (!game.started){
+      game.started = true;
+      timer = setInterval(display,100);
+    }
+  }
 
   ////////////////////////////////////////////////////////////////////
   // GAME LOGIC
@@ -99,6 +140,8 @@ $(document).ready(function(){
     initializeBlocks(game.columnB, 2);
     $("#left-column, #right-column").css("bottom",'1263px')
     $("#scoreA, #scoreB").html("Current score:   0");
+    $("#timerA>time, #timerB>time").html("00.0s");
+    stopTimer();
   };
 
   // Buttons
