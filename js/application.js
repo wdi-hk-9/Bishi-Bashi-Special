@@ -96,6 +96,7 @@ $(document).ready(function(){
     timer = 0;
     millisec = 0;
     seconds = 0;
+    totalTime = 0;
   }
 
   function display(){
@@ -125,7 +126,6 @@ $(document).ready(function(){
   ////////////////////////////////////////////////////////////////////
   // GAME LOGIC
   ////////////////////////////////////////////////////////////////////
-
   var init = function() {
     game = new Game();
     initializeBlocks(game.columnA, 5);
