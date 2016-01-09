@@ -7,7 +7,7 @@ $(document).ready(function(){
   var combo = new buzz.sound("./sounds/ball-paddle.mp3");
   var pika = new buzz.sound("./sounds/pikapika.wav");
   if (!buzz.isMP3Supported()) {
-    alert ("Your browser doesn't support MP3 Format.")
+    console.log("Your browser doesn't support MP3 Format.")
   };
 
 //BUZZ -set Volume for sounds
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   //Initialize box colors
   var initializeBlocks = function(column, offset){
-    var html = '<div class="blocks col-xs-5 col-xs-offset-' + offset + '">&nbsp</div>';
+    var html = '<div class="blocks col-xs-7 col-xs-offset-' + offset + '">&nbsp</div>';
     for (var i = 0; i < 20; i++){
       $(column.columnID).append(html);
     }
@@ -44,8 +44,7 @@ $(document).ready(function(){
             kickBox.play();//play sound
             $(column.columnID).find("div:last-child").remove();//remove column last div
             player.colPosition = player.colPosition+70;
-            // $(column.columnID).css("transform",'translateY('+player.colPosition+'px)'); //shift column down
-            $(column.columnID).css("bottom", (1263 - player.colPosition)+'px'); //shift column down
+            $(column.columnID).css("bottom", (1333 - player.colPosition)+'px'); //shift column down
             player.playerColor.push(keyColor); //update Array
             player.score();                    //player score++
             $(player.scoreID).html("Current score:   "+player.playerScore);
@@ -56,13 +55,13 @@ $(document).ready(function(){
               $(column.columnID).find("div:last-child").addClass("animated bounce");
             } else if (player.playerScore%5 ==0){
               combo.play();
-            }                                 //PLAY SOUND arguement
+            }
           } else {
             $(column.columnID).find("div:last-child").addClass("animated flash");
             $(column.columnID).find("div:last-child").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
               $(this).removeClass("animated flash");
             });
-            shakeSound.play();               //PLAY SOUND
+            shakeSound.play();
             player.penalty = true;
             setTimeout(function(){player.penalty = false;}, 500);
           }
@@ -96,11 +95,12 @@ $(document).ready(function(){
     timer = 0;
     millisec = 0;
     seconds = 0;
+    totalTime = 0;
   }
 
   function display(){
     totalTime += 100;
-    millisec = (totalTime % 1000) / 100;
+    millisec = (totalTime % 1000) / 100; //REMEMBER THIS!!
     seconds = Math.floor(totalTime / 1000);
     if (!game.playerA.ended){
       $("#timerA>time").html(seconds + "." + millisec + "s");
@@ -125,10 +125,9 @@ $(document).ready(function(){
   ////////////////////////////////////////////////////////////////////
   // GAME LOGIC
   ////////////////////////////////////////////////////////////////////
-
   var init = function() {
     game = new Game();
-    initializeBlocks(game.columnA, 5);
+    initializeBlocks(game.columnA, 3);
     initializeBlocks(game.columnB, 2);
   };
 
@@ -136,9 +135,9 @@ $(document).ready(function(){
     delete game;
     game = new Game();
     $(".blocks").remove();
-    initializeBlocks(game.columnA, 5);
+    initializeBlocks(game.columnA, 3);
     initializeBlocks(game.columnB, 2);
-    $("#left-column, #right-column").css("bottom",'1263px')
+    $("#left-column, #right-column").css("bottom",'1333px')
     $("#scoreA, #scoreB").html("Current score:   0");
     $("#timerA>time, #timerB>time").html("00.0s");
     stopTimer();

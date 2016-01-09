@@ -2,35 +2,34 @@
 <html lang="en">
 
 <head>
+  <title> Bishi Bashi with Pikachu </title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Bishi Bashi stack">
   <meta name="author" content="Chark-WDI 9">
-
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/animate.css" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href='https://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <section class="container well" id="game-title">
-    <h1 class="text-center">Bishi Bashi Special-Two Players</h1>
-  </section>
-
-  <div class="text-center">
+  <div class="text-center col-xs-12" id="game-title">
+    <h2>Bishi Bashi Special-Two Players</h2>
     <button type="button" class="btn btn-danger" id="reset">New Game</button>
-    <button type="button" class="btn btn-warning" id="mute">Mute/Unmute</button>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" id="instruct">Instructions</button>
+    <button type="button" class="btn btn-warning" id="mute">Music</button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" id="instruct">Rules</button>
   </div>
 
   <section class="container well" id="column-section">
     <div>
       <div class="row" >
-
         <!-- LEFT COLUMN -->
         <div class="col-xs-6" id="left-column">
           <div class="col-xs-6 col-xs-offset-3" id="Pikachu1">
@@ -47,65 +46,75 @@
     </div>
   </section> <!-- close columns section -->
 
-  <section class="container well text-center bg-info">
-    <div class="bg-info">
-      <div class="row">
+  <section class="container text-center bg-info" id="score-box">
+    <div class="row">
+      <div class="col-xs-3 h4">
+      Player A
+      </div>
+      <div class="col-xs-3 h4" id="timerA">
+        <time>00.0s</time>
+      </div>
+      <div class="col-xs-3 h4">
+      Player B
+      </div>
+      <div class="col-xs-3 h4" id="timerB">
+        <time>00.0s</time>
+      </div>
+    </div> <!-- div row close div -->
 
-        <div class="col-xs-3 h3">
-        Player A
-        </div><!-- <input type="number" placeholder="Your name"> -->
-        <div class="col-xs-3 h3" id="timerA">
-          <time>00.0s</time>
-        </div>
-        <div class="col-xs-3 h3">
-        Player B
-        </div>
-        <div class="col-xs-3 h3" id="timerB">
-          <time>00.0s</time>
-        </div>
-
-      </div> <!-- div row close div -->
-
-      <div class="row text-success">
-        <div class="col-xs-6">
-          <h3 id="scoreA">Current score:   0</h3>
-        </div>
-        <div class="col-xs-6">
-          <h3 id="scoreB">Current score:   0</h3>
-        </div>
+    <div class="row text-success">
+      <div class="col-xs-6">
+        <h4 id="scoreA">Current score:   0</h4>
+      </div>
+      <div class="col-xs-6">
+        <h4 id="scoreB">Current score:   0</h4>
       </div>
     </div>
   </section>
-
 
   <!-- Modal -->
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
       <!-- Modal content -->
       <div class="modal-content">
-
-        <div class="modal-header text-center bg-success">
+        <div class="modal-header text-center bg-info h3">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title">Instructions for Bishi Bashi Special</h2>
+          Instructions for Bishi Bashi Special
         </div>
 
-        <div class="modal-body">
-          <img class="img-responsive-height pull-right" src="images/PikachuLeft2.png"  alt="Image">
-          <img class="img-responsive-height pull-left" src="images/instructions.png"  alt="Image">
-        </div>
-
-        <div class="modal-footer text-info">
-          <div class="row">
-            <div class="col-xs-9 h5">Recreated by GA-WDI-HK-9-Charlotte KWAN
-            </div>
-            <div class="col-xs-3 h5"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
+        <div class="modal-body col-xs-12 text-center">
+          <h3 class="text-info"> How to win</h3>
+          <hr>
+          <h4> PLAYERS => select color of the block at the bottom</h4>
+          <h4> Block will be removed if the correct color is selected</h4>
+          <h4> Quickest player to remove all blocks wins.</h4>
+          <br>
+          <br>
+          <h4 class="text-info"><u> Remember your keys below!</u> <h4>
+          <br>
+          <div class="col-xs-8 col-xs-push-2">
+            <img src="images/keys.png" class="img img-responsive" alt="Key">
           </div>
+        </div>
+
+        <div class="modal-footer col-xs-12 h4">
+          <ul class="text-center">
+            <li> Charlotte Kwan &copy; 2016 All Rights Reserved. GitHub:</li>
+            <li><a href="#"><i class="fa fa-github"></i></a></li>
+          </ul>
         </div>
 
       </div>
     </div>
   </div>
+
+  <footer class="text-center bg-info h3">
+    <ul>
+      <li> Charlotte Kwan &copy; 2016 All Rights Reserved.</li>
+      <li><a href="https://twitter.com/charkhk"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="https://github.com/charkhk/Bishi-Bashi-Special"><i class="fa fa-github"></i></a></li>
+    </ul>
+  </footer>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
